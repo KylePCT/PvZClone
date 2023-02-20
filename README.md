@@ -1,6 +1,6 @@
 # Plants vs. Zombies Unity Clone
  
-## Devlog: https://kylepct.notion.site/Plants-vs-Zombies-Unity-Clone-3564e39a625d4d4aaf6cfcd850967ad9
+#### Devlog: https://kylepct.notion.site/Plants-vs-Zombies-Unity-Clone-3564e39a625d4d4aaf6cfcd850967ad9
 
 Going to keep this repository public so I can show progress and others are welcome to also learn from it. :)
  
