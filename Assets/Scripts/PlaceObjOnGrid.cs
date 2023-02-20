@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlaceObjOnGrid : MonoBehaviour
 {
-    public Transform gridCellPrefab;
-    public Transform cube;
-    public Transform onMousePrefab;
-    public Vector3 smoothMousePos;
+    [Header("Attributes")]
     [SerializeField] private int gridHeight;
     [SerializeField] private int gridWidth;
+
+    [Header("Object References")]
+    public Transform gridCellPrefab;
+    public Transform plantPlaceholder;
+
+    [Header("Dynamic Prefabs")]
+    public Transform onMousePrefab;
+    public Vector3 smoothMousePos;
     private Node[,] nodes;
     private Plane plane;
 
@@ -77,7 +82,7 @@ public class PlaceObjOnGrid : MonoBehaviour
     {
         if (onMousePrefab == null)
         {
-            onMousePrefab = Instantiate(cube, mousePos, Quaternion.identity);
+            onMousePrefab = Instantiate(plantPlaceholder, mousePos, Quaternion.identity);
         }
     }
 }
