@@ -32,8 +32,10 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.tag == "Zombie")
         {
-            Destroy(gameObject);
-            Debug.Log("Hit zombie: " + col.gameObject.name);
+            col.GetComponent<Zombie>().TakeDamage(damageOnHit);
+            Debug.Log("Hit Zombie: " + col.gameObject.name);
+            Destroy(gameObject); //Destroy bullet.
         }
     }
+
 }

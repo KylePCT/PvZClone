@@ -301,14 +301,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941094916}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.8, y: 11.76, z: 2.61}
+  m_LocalRotation: {x: 0.6195735, y: 0, z: 0, w: 0.78493863}
+  m_LocalPosition: {x: 3.97, y: 7.28, z: 0.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 76.57, y: 0, z: 0}
 --- !u!1 &981419664
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 981419666}
   - component: {fileID: 981419665}
+  - component: {fileID: 981419667}
   m_Layer: 0
   m_Name: Grid Controller
   m_TagString: Untagged
@@ -359,6 +360,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &981419667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981419664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e1a976a4eaf8f34ba10ab59e33a1682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombiePrefab: {fileID: 8357248548369508589, guid: dd3f0e04b7990ca4cb6992ca9646e437, type: 3}
+  maxZombieCount: 20
+  zombieCounter: 0
 --- !u!1 &1572935792
 GameObject:
   m_ObjectHideFlags: 0

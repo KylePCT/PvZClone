@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlaceObjOnGrid : MonoBehaviour
 {
     [Header("Attributes")]
-    [SerializeField] private int gridHeight;
-    [SerializeField] private int gridWidth;
+    public int gridHeight;
+    public int gridWidth;
 
     [Header("Object References")]
     public Transform gridCellPrefab;
@@ -15,7 +15,7 @@ public class PlaceObjOnGrid : MonoBehaviour
     [Header("Dynamic Prefabs")]
     public Transform onMousePrefab;
     public Vector3 smoothMousePos;
-    private Node[,] nodes;
+    public Node[,] nodes;
     private Plane plane;
 
     private Vector3 mousePos;
@@ -42,6 +42,7 @@ public class PlaceObjOnGrid : MonoBehaviour
                 Vector3 worldPos = new Vector3(i, 0, j);
                 Transform obj = Instantiate(gridCellPrefab, worldPos, Quaternion.identity);
                 obj.name = "Cell " + name;
+                obj.transform.parent = transform;
                 nodes[i,j] = new Node(true, worldPos, obj);
                 name++;
             }
