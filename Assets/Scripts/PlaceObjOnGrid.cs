@@ -71,6 +71,14 @@ public class PlaceObjOnGrid : MonoBehaviour
                         node.isPlaceable = false;
                         onMousePrefab.GetComponent<ObjFollowsMouse>().isOnGrid = true;
                         onMousePrefab.position = node.cellPos + new Vector3(0, 0.5f, 0);
+
+                        if (onMousePrefab.GetComponent<Plant_Offensive>() != null)
+                        {
+                            Plant_Offensive plant = onMousePrefab.GetComponent<Plant_Offensive>();
+                            plant.isFiring = true;
+                            plant.StartCoroutine("fireBullet");
+                        }
+
                         onMousePrefab = null;
                     }
                 }

@@ -129,6 +129,7 @@ MonoBehaviour:
   currentHealth: 0
   sunCost: 100
   spawnRechargeTime: 0
-  plantBullet: {fileID: 7321516039097133472, guid: fb1ba3cb3d8f0344c92a800289f508b3, type: 3}
+  plantBullet: {fileID: 2461005882146220794, guid: fb1ba3cb3d8f0344c92a800289f508b3, type: 3}
   damagePerShot: 10
   shotInterval: 1
+  isFiring: 0

@@ -5,28 +5,36 @@ using UnityEngine;
 public class Plant_Offensive : Plant
 {
     [Header("Offensive")]
-    public GameObject plantBullet;
+    public Bullet plantBullet;
     [Space(10)]
     public int damagePerShot;
     public int shotInterval;
 
+    public bool isFiring;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("fireBullet");
+
     }
 
     IEnumerator fireBullet()
     {
-        while (true)
+        while (isFiring)
         {
             //Wait for seconds.
             yield return new WaitForSeconds(shotInterval);
             Debug.Log("Spawning Bullet.");
 
             //Every X seconds, spawn the bullet.
-            GameObject bullet = Instantiate(plantBullet, transform, true);
+            Bullet bullet = Instantiate(plantBullet, transform, true);
+            bullet.SetData(damagePerShot);
             bullet.transform.parent = transform;
+        }
+
+        while (!isFiring)
+        {
+            yield return null;
         }
     }
 }
