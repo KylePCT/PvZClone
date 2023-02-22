@@ -375,6 +375,7 @@ MonoBehaviour:
   zombiePrefab: {fileID: 8357248548369508589, guid: dd3f0e04b7990ca4cb6992ca9646e437, type: 3}
   maxZombieCount: 20
   zombieCounter: 0
+  delayBetweenSpawns: 3
 --- !u!1 &1572935792
 GameObject:
   m_ObjectHideFlags: 0

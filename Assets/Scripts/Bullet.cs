@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     public int bulletSpeed;
     public int bulletLifetime;
 
-    private int damageOnHit;
+    private float damageOnHit;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, bulletLifetime);
     }
 
-    public void SetData(int damageOnHit)
+    public void SetData(float damageOnHit)
     {
         this.damageOnHit = damageOnHit;
     }

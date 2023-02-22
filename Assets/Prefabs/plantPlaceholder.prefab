@@ -356,7 +356,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.6, y: 1, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-1796166105164323
 MonoBehaviour:
@@ -390,6 +390,6 @@ MonoBehaviour:
   sunCost: 100
   spawnRechargeTime: 0
   plantBullet: {fileID: 2461005882146220794, guid: fb1ba3cb3d8f0344c92a800289f508b3, type: 3}
-  damagePerShot: 10
-  shotInterval: 1
+  damagePerShot: 20
+  shotInterval: 1.425
   isFiring: 0

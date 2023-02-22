@@ -8,15 +8,19 @@ public class Zombie : MonoBehaviour
     public GameObject zombieModel;
 
     [Header("Movement")]
+    [Tooltip("The length of time it will take the Zombie to move one grid space.")]
     public float walkingSpeed;
 
     [Header("Attacking")]
-    public int attackRate;
-    public int damagePerAttack;
+    public float attackRate;
+    public float damagePerAttack;
 
     [Header("Health")]
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
+    public float maxExtraHealth;
+    public float currentExtraHealth;
+
     public TextMeshPro healthText;
 
     [Header("Eating")]
@@ -28,7 +32,11 @@ public class Zombie : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        currentExtraHealth = maxExtraHealth;
         healthText.text = currentHealth.ToString();
+
+        //Walking speed refers to speed/tile, so we divide to get that value accurately. Divide again by 2 for more accuracy.
+        walkingSpeed = ((walkingSpeed / PlaceObjOnGrid.instance.gridWidth) / 2);
     }
 
     // Update is called once per frame
@@ -39,6 +47,7 @@ public class Zombie : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        //If it collides with a plant.
         if (col.gameObject.tag == "Plant")
         {
             isEating = true;
@@ -49,25 +58,38 @@ public class Zombie : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "Plant")
-        {
-            isEating = false;
-            plantInCollision = null;
-            StopCoroutine("eatPlant");
-        }
+        isEating = false;
+        plantInCollision = null;
+        StopCoroutine("eatPlant");
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth = currentHealth - damage;
-        healthText.text = currentHealth.ToString();
+        //Take standard health damage.
+        if (currentHealth > damage)
+        {
+            currentHealth = currentHealth - damage;
+            healthText.text = currentHealth.ToString();
 
-        Debug.Log("Zombie hit!   " + this.gameObject.name);
+            Debug.Log("Zombie hit!   " + this.gameObject.name);
+        }
 
-        if (currentHealth <= 0) 
-        { 
-            Destroy(this.gameObject);
-            Debug.Log("Zombie dead!   " + this.gameObject.name);
+        //When health is depleted...
+        else if (currentHealth <= damage) 
+        {
+            //Take damage to extra health.
+            currentExtraHealth = currentExtraHealth - damage;
+            healthText.text = currentExtraHealth.ToString();
+
+            //Stop movement ("die").
+            walkingSpeed = 0;
+
+            //Rip.
+            if (currentExtraHealth <= damage)
+            {
+                Debug.Log("Zombie dead! " + this.gameObject.name);
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -77,9 +99,13 @@ public class Zombie : MonoBehaviour
         {
             //Wait for seconds.
             yield return new WaitForSeconds(attackRate);
-            Debug.Log("Eating.  " + plantInCollision.name + "  " + plantInCollision.currentHealth);
-            plantInCollision.currentHealth = plantInCollision.currentHealth - damagePerAttack;
-            plantInCollision.healthText.text = plantInCollision.currentHealth.ToString();
+            if (plantInCollision != null)
+            {
+                Debug.Log("Eating.  " + plantInCollision.name + "  " + plantInCollision.currentHealth);
+                plantInCollision.currentHealth = plantInCollision.currentHealth - damagePerAttack;
+                plantInCollision.healthText.text = plantInCollision.currentHealth.ToString();
+            }
+            else isEating = false;
         }
 
         while (!isEating)

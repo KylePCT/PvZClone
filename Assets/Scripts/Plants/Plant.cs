@@ -8,12 +8,12 @@ public class Plant : MonoBehaviour
     public GameObject plantModel;
 
     [Space(10)]
-    public int maxHealth;
-    public int currentHealth;
+    public float maxHealth;
+    public float currentHealth;
     public TextMeshPro healthText;
 
     [Space(10)]
-    public int sunCost;
+    public float sunCost;
     public enum SpawnRechargeTime { Fast, Medium, Slow };
     public SpawnRechargeTime spawnRechargeTime;
 

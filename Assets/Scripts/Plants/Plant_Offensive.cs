@@ -7,8 +7,8 @@ public class Plant_Offensive : Plant
     [Header("Offensive")]
     public Bullet plantBullet;
     [Space(10)]
-    public int damagePerShot;
-    public int shotInterval;
+    public float damagePerShot;
+    public float shotInterval;
 
     public bool isFiring;
 

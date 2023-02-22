@@ -51,11 +51,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieModel: {fileID: 0}
-  walkingSpeed: 0.4
+  walkingSpeed: 4.7
   attackRate: 1
-  damagePerAttack: 10
-  maxHealth: 100
-  currentHealth: 100
+  damagePerAttack: 100
+  maxHealth: 181
+  currentHealth: 181
+  maxExtraHealth: 89
+  currentExtraHealth: 89
   healthText: {fileID: 6782493321194438646}
   isEating: 0
 --- !u!33 &938135059205887224
@@ -119,7 +121,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.6, y: 1, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &74023710632801665
 Rigidbody:

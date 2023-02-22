@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlaceObjOnGrid : MonoBehaviour
 {
+    public static PlaceObjOnGrid instance = null;
+    
     [Header("Attributes")]
     public int gridHeight;
     public int gridWidth;
@@ -19,6 +21,12 @@ public class PlaceObjOnGrid : MonoBehaviour
     private Plane plane;
 
     private Vector3 mousePos;
+
+    private void Awake()
+    {
+        if (instance == null) instance = this; //Assign instance.
+        else if (instance != this) Destroy(gameObject); //If we already have this existing, we don't need another.
+    }
 
     void Start()
     {
