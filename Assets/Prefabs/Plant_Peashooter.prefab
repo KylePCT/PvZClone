@@ -266,13 +266,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7243994099130381921}
+  - component: {fileID: -6145095405766462292}
   - component: {fileID: 6953719331974630532}
   - component: {fileID: 68315205167253520}
   - component: {fileID: 6103243229044018207}
   - component: {fileID: -1796166105164323}
-  - component: {fileID: -6145095405766462292}
   m_Layer: 0
-  m_Name: plantPlaceholder
+  m_Name: Plant_Peashooter
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,6 +295,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6145095405766462292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987092860135531906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff0a0db48fbc2c4eaff57e736053246, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 300
+  currentHealth: 300
+  healthText: {fileID: 7592420756834045537}
+  plantBullet: {fileID: 2461005882146220794, guid: fb1ba3cb3d8f0344c92a800289f508b3, type: 3}
+  damagePerShot: 20
+  shotInterval: 1.425
+  bulletsPerShotframe: 1
+  shotframeInterval: 0
+  isFiring: 0
 --- !u!33 &6953719331974630532
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -371,25 +392,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOnGrid: 0
---- !u!114 &-6145095405766462292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6987092860135531906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0a0db48fbc2c4eaff57e736053246, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plantModel: {fileID: 0}
-  maxHealth: 300
-  currentHealth: 300
-  healthText: {fileID: 7592420756834045537}
-  sunCost: 100
-  spawnRechargeTime: 0
-  plantBullet: {fileID: 2461005882146220794, guid: fb1ba3cb3d8f0344c92a800289f508b3, type: 3}
-  damagePerShot: 20
-  shotInterval: 1.425
-  isFiring: 0

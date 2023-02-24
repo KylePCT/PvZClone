@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlaceObjOnGrid : MonoBehaviour
 {
     public static PlaceObjOnGrid instance = null;
+    private UIController uiController;
     
     [Header("Attributes")]
     public int gridHeight;
@@ -12,7 +13,7 @@ public class PlaceObjOnGrid : MonoBehaviour
 
     [Header("Object References")]
     public Transform gridCellPrefab;
-    public Transform plantPlaceholder;
+    public Transform selectedPlant;
 
     [Header("Dynamic Prefabs")]
     public Transform onMousePrefab;
@@ -20,7 +21,7 @@ public class PlaceObjOnGrid : MonoBehaviour
     public Node[,] nodes;
     private Plane plane;
 
-    private Vector3 mousePos;
+    [HideInInspector] public Vector3 mousePos;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class PlaceObjOnGrid : MonoBehaviour
 
     void Start()
     {
+        uiController = UIController.instance;
         CreateGrid();
     }
 
@@ -80,6 +82,7 @@ public class PlaceObjOnGrid : MonoBehaviour
                         node.isPlaceable = false;
                         onMousePrefab.GetComponent<ObjFollowsMouse>().isOnGrid = true;
                         onMousePrefab.position = node.cellPos + new Vector3(0, 0.5f, 0);
+                        uiController.currentlyHighlightedUIMember.PlaceAndBeginRecharging();
 
                         if (onMousePrefab.GetComponent<Plant_Offensive>() != null)
                         {
@@ -92,14 +95,6 @@ public class PlaceObjOnGrid : MonoBehaviour
                     }
                 }
             }
-        }
-    }
-
-    public void OnMouseClickOnUI()
-    {
-        if (onMousePrefab == null)
-        {
-            onMousePrefab = Instantiate(plantPlaceholder, mousePos, Quaternion.identity);
         }
     }
 }

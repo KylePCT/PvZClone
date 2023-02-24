@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48cf8c0de44c0664da0704e564fa6421, type: 3}
+  m_Name: PlantData_Repeater
+  m_EditorClassIdentifier: 
+  plantName: Repeater
+  plantDescription: 'Repeaters fire two peas at a time.
+
+
+    Repeater is fierce.
+    He''s from the streets. He doesn''t take attitude from anybody, plant or zombie,
+    and he shoots peas to keep people at a distance. Secretly, though, Repeater yearns
+    for love.'
+  plantPrefab: {fileID: 6987092860135531906, guid: bb7ac6b74a2099848b9b0d127c3cc47f, type: 3}
+  sunCost: 200
+  spawnRechargeTime: 0

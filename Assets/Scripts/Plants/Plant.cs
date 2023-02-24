@@ -5,17 +5,9 @@ using TMPro;
 
 public class Plant : MonoBehaviour
 {
-    public GameObject plantModel;
-
-    [Space(10)]
     public float maxHealth;
     public float currentHealth;
     public TextMeshPro healthText;
-
-    [Space(10)]
-    public float sunCost;
-    public enum SpawnRechargeTime { Fast, Medium, Slow };
-    public SpawnRechargeTime spawnRechargeTime;
 
     // Start is called before the first frame update
     void Start()

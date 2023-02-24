@@ -9,6 +9,9 @@ public class Plant_Offensive : Plant
     [Space(10)]
     public float damagePerShot;
     public float shotInterval;
+    [Space(10)]
+    public int bulletsPerShotframe;
+    public float shotframeInterval;
 
     public bool isFiring;
 
@@ -26,10 +29,14 @@ public class Plant_Offensive : Plant
             yield return new WaitForSeconds(shotInterval);
             Debug.Log("Spawning Bullet.");
 
-            //Every X seconds, spawn the bullet.
-            Bullet bullet = Instantiate(plantBullet, transform, true);
-            bullet.SetData(damagePerShot);
-            bullet.transform.parent = transform;
+            for (int i = 0; i < bulletsPerShotframe; i++)
+            {
+                //Every X seconds, spawn the bullet.
+                Bullet bullet = Instantiate(plantBullet, transform, true);
+                bullet.SetData(damagePerShot);
+                bullet.transform.parent = transform;
+                yield return new WaitForSeconds(shotframeInterval);
+            }
         }
 
         while (!isFiring)
