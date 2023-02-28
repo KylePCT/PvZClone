@@ -43,7 +43,7 @@ public class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPoin
         uiController.DecreaseSunAmount(selectedPlant.sunCost);
         uiController.currentlyHighlightedUIMember = null;
 
-        SetRechargeTime();
+        SetRechargeTime(); //Uses the spawnRechargeTime Enum to set the recharge time.
         isRecharging = true;
         GetComponent<Image>().fillAmount = 0;
         rechargeTime = 0;
