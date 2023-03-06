@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TooltipController : MonoBehaviour
+internal class TooltipController : MonoBehaviour
 {
     public TextMeshProUGUI plantName;
     public TextMeshProUGUI plantDescription;

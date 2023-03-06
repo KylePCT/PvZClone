@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private PlaceObjOnGrid gridController;
     private UIController uiController;

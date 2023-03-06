@@ -13,18 +13,14 @@ MonoBehaviour:
   m_Name: 1-1
   m_EditorClassIdentifier: 
   waveNumber: 1-1
-  delayBetweenSegments: 10
+  delayBetweenSegments: 20
   waveSegments:
-  - zombieTypes:
+  - zombiesInSegment:
     - {fileID: 8357248548369508589, guid: dd3f0e04b7990ca4cb6992ca9646e437, type: 3}
-    zombiesInSegment: 1
-  - zombieTypes:
+  - zombiesInSegment:
     - {fileID: 8357248548369508589, guid: dd3f0e04b7990ca4cb6992ca9646e437, type: 3}
-    zombiesInSegment: 1
-  - zombieTypes:
+  - zombiesInSegment:
     - {fileID: 8357248548369508589, guid: dd3f0e04b7990ca4cb6992ca9646e437, type: 3}
-    zombiesInSegment: 1
-  - zombieTypes:
+  - zombiesInSegment:
     - {fileID: 8357248548369508589, guid: dd3f0e04b7990ca4cb6992ca9646e437, type: 3}
     - {fileID: 8357248548369508589, guid: 076ed1cf97113cb4293979a634a66556, type: 3}
-    zombiesInSegment: 2

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Plant : MonoBehaviour
+internal class Plant : MonoBehaviour
 {
     public float maxHealth;
     public float currentHealth;
@@ -18,9 +18,6 @@ public class Plant : MonoBehaviour
 
     private void Update()
     {
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
+        if (currentHealth <= 0) { Destroy(gameObject); }
     }
 }

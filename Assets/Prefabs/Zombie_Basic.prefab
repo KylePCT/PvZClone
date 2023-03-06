@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieModel: {fileID: 0}
-  walkingSpeed: 4.7
+  walkingSpeed: 2.5
   attackRate: 1
   damagePerAttack: 100
   maxHealth: 181

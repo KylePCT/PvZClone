@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+internal class UIController : MonoBehaviour
 {
     public static UIController instance = null;
     public TextMeshProUGUI sunCountText;
@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public PlantSelectionUIMember currentlyHighlightedUIMember;
 
     [Header("Global Values")]
+    public int startingSun;
     public int currentSun;
 
     private void Awake()
@@ -23,7 +24,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentSun = 2000;
+        currentSun = startingSun;
         sunCountText.text = currentSun.ToString();
     }
 

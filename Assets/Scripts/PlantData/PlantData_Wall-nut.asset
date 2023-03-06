@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48cf8c0de44c0664da0704e564fa6421, type: 3}
+  m_Name: PlantData_Wall-nut
+  m_EditorClassIdentifier: 
+  plantName: Wall-nut
+  plantDescription: 'Wall-nuts have hard shells which you can use to protect your
+    other plants.
+
+
+    "People wonder how I feel about getting constantly chewed
+    on by zombies." says Wall-nut. "What they don''t realise is that with my limited
+    senses all I can feel is a kind of tingling, like a relaxing back rub."'
+  plantPrefab: {fileID: 6987092860135531906, guid: 822be9dd0fbe9a44f9b50039c0279b79, type: 3}
+  sunCost: 50
+  spawnRechargeTime: 1

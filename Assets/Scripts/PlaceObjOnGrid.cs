@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlaceObjOnGrid : MonoBehaviour
+internal class PlaceObjOnGrid : MonoBehaviour
 {
     public static PlaceObjOnGrid instance = null;
     private UIController uiController;
@@ -89,6 +89,13 @@ public class PlaceObjOnGrid : MonoBehaviour
                             Plant_Offensive plant = onMousePrefab.GetComponent<Plant_Offensive>();
                             plant.isFiring = true;
                             plant.StartCoroutine("fireBullet");
+                        }
+
+                        else if (onMousePrefab.GetComponent<Plant_SunProducing>() != null) 
+                        { 
+                            Plant_SunProducing plant = onMousePrefab.GetComponent<Plant_SunProducing>();
+                            plant.canGenerate = true;
+                            plant.StartCoroutine("generateSun");
                         }
 
                         onMousePrefab = null;

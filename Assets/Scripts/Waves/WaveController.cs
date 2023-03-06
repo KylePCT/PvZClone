@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class WaveController : MonoBehaviour
+internal class WaveController : MonoBehaviour
 {
     private PlaceObjOnGrid gridGenerator;
 

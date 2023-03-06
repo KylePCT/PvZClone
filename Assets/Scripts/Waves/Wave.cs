@@ -5,7 +5,7 @@ using UnityEngine;
 
 [Serializable]
 [CreateAssetMenu(fileName = "Wave", menuName = "PvZRemake/Wave/New Wave", order = 1)]
-public class Wave : ScriptableObject
+internal class Wave : ScriptableObject
 {
     public string waveNumber;
     public float delayBetweenSegments; //Uses this OR if the wave is defeated to trigger the next.
@@ -15,7 +15,7 @@ public class Wave : ScriptableObject
 }
 
 [Serializable]
-public class WaveSegment
+internal class WaveSegment
 {
     public Zombie[] zombiesInSegment;
 }

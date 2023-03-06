@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Zombie : MonoBehaviour
+internal class Zombie : MonoBehaviour
 {
     public GameObject zombieModel;
 
@@ -58,13 +58,18 @@ public class Zombie : MonoBehaviour
 
     private void OnTriggerExit(Collider col)
     {
-        isEating = false;
-        plantInCollision = null;
-        StopCoroutine("eatPlant");
+        //If it collides with a plant.
+        if (col.gameObject.tag == "Plant")
+        {
+            isEating = false;
+            plantInCollision = null;
+            StopCoroutine("eatPlant");
+        }
     }
 
     public void TakeDamage(float damage)
     {
+
         //Take standard health damage.
         if (currentHealth > damage)
         {

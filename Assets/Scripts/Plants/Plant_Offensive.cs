@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Plant_Offensive : Plant
+internal class Plant_Offensive : Plant
 {
     [Header("Offensive")]
     public Bullet plantBullet;

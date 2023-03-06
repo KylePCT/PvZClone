@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuperBasicZombieSpawner : MonoBehaviour
+internal class SuperBasicZombieSpawner : MonoBehaviour
 {
     private PlaceObjOnGrid gridGenerator;
 
