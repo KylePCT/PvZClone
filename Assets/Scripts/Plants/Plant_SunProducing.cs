@@ -22,7 +22,7 @@ internal class Plant_SunProducing : Plant
     {
         while (canGenerate)
         {
-            Debug.Log("Spawning Sun.");
+            TraceBeans.Info("Spawning Sun from Plant: <" + gameObject.name + ">.");
 
             //Every X seconds, spawn the sun.
             Sun sun = Instantiate(plantSun, transform, true);

@@ -76,7 +76,7 @@ internal class Zombie : MonoBehaviour
             currentHealth = currentHealth - damage;
             healthText.text = currentHealth.ToString();
 
-            Debug.Log("Zombie hit!   " + this.gameObject.name);
+            TraceBeans.Info("Zombie: <" + this.gameObject.name + "> was hit for <" + damage + ">! Remaining Health: <" + currentHealth + ">.");
         }
 
         //When health is depleted...
@@ -85,6 +85,7 @@ internal class Zombie : MonoBehaviour
             //Take damage to extra health.
             currentExtraHealth = currentExtraHealth - damage;
             healthText.text = currentExtraHealth.ToString();
+            TraceBeans.Info("Zombie: <" + this.gameObject.name + "> was hit for <" + damage + ">! Remaining Extra Health: <" + currentExtraHealth + ">.");
 
             //Stop movement ("die").
             walkingSpeed = 0;
@@ -92,7 +93,7 @@ internal class Zombie : MonoBehaviour
             //Rip.
             if (currentExtraHealth <= damage)
             {
-                Debug.Log("Zombie dead! " + this.gameObject.name);
+                TraceBeans.Info("Zombie: <" + this.gameObject.name + "> is now dead!");
                 Destroy(gameObject);
             }
         }
@@ -106,7 +107,7 @@ internal class Zombie : MonoBehaviour
             yield return new WaitForSeconds(attackRate);
             if (plantInCollision != null)
             {
-                Debug.Log("Eating.  " + plantInCollision.name + "  " + plantInCollision.currentHealth);
+                TraceBeans.Info("Zombie: <" + this.gameObject.name + "> is eating: <" + plantInCollision.name + ". Remaining health: <" + plantInCollision.currentHealth + ">.");
                 plantInCollision.currentHealth = plantInCollision.currentHealth - damagePerAttack;
                 plantInCollision.healthText.text = plantInCollision.currentHealth.ToString();
             }

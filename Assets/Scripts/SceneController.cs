@@ -35,7 +35,7 @@ internal class SceneController : MonoBehaviour
             Vector3 randomSpawnPos = new Vector3(Random.Range(0, gridController.gridWidth), 10f, Random.Range(0, gridController.gridHeight));
             //Every X seconds, spawn the sun.
             Sun sun = Instantiate(plantSun, randomSpawnPos, Quaternion.identity);
-            Debug.Log("Spawning Natural Sun at " + randomSpawnPos);
+            TraceBeans.Info("Spawning Natural Sun at <" + randomSpawnPos + ">.");
 
             //Wait for seconds.
             yield return new WaitForSeconds(naturalSunGenInterval);

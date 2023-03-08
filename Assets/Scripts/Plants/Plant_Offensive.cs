@@ -27,7 +27,7 @@ internal class Plant_Offensive : Plant
         {
             //Wait for seconds.
             yield return new WaitForSeconds(shotInterval);
-            Debug.Log("Spawning Bullet.");
+            TraceBeans.Info("Spawning Bullet.");
 
             for (int i = 0; i < bulletsPerShotframe; i++)
             {

@@ -35,5 +35,6 @@ internal class Sun : MonoBehaviour
     {
         uiController.IncreaseSunAmount(sunAmount);
         Destroy(gameObject);
+        TraceBeans.Info("Sun has been collected. Total Sun Amount is now: <" + uiController.currentSun + ">.");
     }
 }

@@ -4838,7 +4838,7 @@ GameObject:
   - component: {fileID: 8607773998284652861}
   - component: {fileID: -4357137704936020809}
   m_Layer: 7
-  m_Name: Sun_Base
+  m_Name: Sun_Base_25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

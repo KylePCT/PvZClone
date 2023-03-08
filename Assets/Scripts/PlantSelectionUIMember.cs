@@ -102,7 +102,7 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
         //Output to console the GameObject's name and the following message
-        Debug.Log("Cursor Entering " + name + " GameObject");
+        TraceBeans.Info("Cursor Entering: <" + name + "> UI Object.");
 
         uiController.currentlyHighlightedUIMember = this;
 
@@ -116,7 +116,7 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         //Output the following message with the GameObject's name
-        Debug.Log("Cursor Exiting " + name + " GameObject");
+        TraceBeans.Info("Cursor Exiting: <" + name + "> UI Object.");
 
         uiController.tooltip.SetActive(false);
     }

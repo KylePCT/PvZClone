@@ -83,6 +83,7 @@ internal class PlaceObjOnGrid : MonoBehaviour
                         onMousePrefab.GetComponent<ObjFollowsMouse>().isOnGrid = true;
                         onMousePrefab.position = node.cellPos + new Vector3(0, 0.5f, 0);
                         uiController.currentlyHighlightedUIMember.PlaceAndBeginRecharging();
+                        TraceBeans.Info("Plant: <" + onMousePrefab.name +  "> has been placed on Tile: <" + node.cellPos + ">.");
 
                         if (onMousePrefab.GetComponent<Plant_Offensive>() != null)
                         {

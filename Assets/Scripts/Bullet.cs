@@ -33,7 +33,7 @@ internal class Bullet : MonoBehaviour
         if (col.gameObject.tag == "Zombie")
         {
             col.GetComponent<Zombie>().TakeDamage(damageOnHit);
-            Debug.Log("Hit Zombie: " + col.gameObject.name);
+            TraceBeans.Info("Hit Zombie: <" + col.gameObject.name + ">.");
             Destroy(gameObject); //Destroy bullet.
         }
     }
