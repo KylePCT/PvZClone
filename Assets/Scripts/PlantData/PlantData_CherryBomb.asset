@@ -18,5 +18,5 @@ MonoBehaviour:
   plantPrefab: {fileID: 5238423604574790589, guid: d1164b39f702be440a067745e425f1f1, type: 3}
   sunCost: 150
   plantDesignation: 0
-  spawnRechargeTime: 0
+  spawnRechargeTime: 2
   isUpgrade: 0
