@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantName: Jalapeno
   plantDescription: Jalapenos destroy an entire lane of zombies.
-  plantPrefab: {fileID: 0}
+  plantPrefab: {fileID: 5547376433400504052, guid: 7737d05bd52f4ad4fb99252e863438d6, type: 3}
   sunCost: 125
   plantDesignation: 0
-  spawnRechargeTime: 2
+  spawnRechargeTime: 0
   isUpgrade: 0

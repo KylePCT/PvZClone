@@ -48,7 +48,7 @@ internal class Zombie : MonoBehaviour
     private void OnTriggerEnter(Collider col)
     {
         //If it collides with a plant.
-        if (col.gameObject.tag == "Plant")
+        if (col.CompareTag("Plant/Default"))
         {
             isEating = true;
             plantInCollision = col.gameObject.GetComponent<Plant>();
@@ -59,7 +59,7 @@ internal class Zombie : MonoBehaviour
     private void OnTriggerExit(Collider col)
     {
         //If it collides with a plant.
-        if (col.gameObject.tag == "Plant")
+        if (col.CompareTag("Plant/Default"))
         {
             isEating = false;
             plantInCollision = null;

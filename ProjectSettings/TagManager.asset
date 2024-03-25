@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Plant
   - Zombie
+  - Ground
+  - Plant/InstantKill
+  - Plant/Default
   layers:
   - Default
   - TransparentFX

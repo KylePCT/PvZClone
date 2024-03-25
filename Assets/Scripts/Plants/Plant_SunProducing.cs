@@ -18,7 +18,13 @@ internal class Plant_SunProducing : Plant
  
     }
 
-    IEnumerator generateSun()
+    public void Initialise()
+    {
+        canGenerate = true;
+        StartCoroutine("GenerateSun");
+    }
+
+    IEnumerator GenerateSun()
     {
         while (canGenerate)
         {

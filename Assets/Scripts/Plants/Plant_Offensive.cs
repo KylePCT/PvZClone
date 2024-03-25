@@ -20,8 +20,13 @@ internal class Plant_Offensive : Plant
     {
 
     }
+    public void Initialise()
+    {
+        isFiring = true;
+        StartCoroutine("FireBullet");
+    }
 
-    IEnumerator fireBullet()
+    IEnumerator FireBullet()
     {
         while (isFiring)
         {

@@ -88,15 +88,19 @@ internal class PlaceObjOnGrid : MonoBehaviour
                         if (onMousePrefab.GetComponent<Plant_Offensive>() != null)
                         {
                             Plant_Offensive plant = onMousePrefab.GetComponent<Plant_Offensive>();
-                            plant.isFiring = true;
-                            plant.StartCoroutine("fireBullet");
+                            plant.Initialise();
                         }
 
                         else if (onMousePrefab.GetComponent<Plant_SunProducing>() != null) 
                         { 
                             Plant_SunProducing plant = onMousePrefab.GetComponent<Plant_SunProducing>();
-                            plant.canGenerate = true;
-                            plant.StartCoroutine("generateSun");
+                            plant.Initialise();
+                        }
+
+                        else if (onMousePrefab.GetComponent<Plant_InstantKills>() != null)
+                        {
+                            Plant_InstantKills plant = onMousePrefab.GetComponent<Plant_InstantKills>();
+                            plant.Initialise();
                         }
 
                         onMousePrefab = null;

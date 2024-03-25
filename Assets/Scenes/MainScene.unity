@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc2eda40eafe70d428a3abea6da46cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPlant: {fileID: 11400000, guid: 0a064b2eabeb52948b875afe6389c99f, type: 2}
+  selectedPlant: {fileID: 11400000, guid: 06a92af7255cdbb4eb1fced789d4db2f, type: 2}
   hasBeenPlaced: 0
 --- !u!114 &648703688
 MonoBehaviour:
@@ -553,9 +553,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 15967147}
   - {fileID: 2025633592}
   - {fileID: 2009235777}
+  - {fileID: 15967147}
   m_Father: {fileID: 1900110998}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bce0fd2d46098a488b619191b91f601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWave: {fileID: 11400000, guid: 08ae31c453066ba47bfc44a365e2f09b, type: 2}
+  currentWave: {fileID: 11400000, guid: 0d3cad4397d15054faf416eb48e09a9f, type: 2}
 --- !u!4 &1597366207
 Transform:
   m_ObjectHideFlags: 0
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.21176471}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1306,7 +1306,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
