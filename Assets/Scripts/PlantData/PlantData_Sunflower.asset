@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: PlantData_Sunflower
   m_EditorClassIdentifier: 
   plantName: Sunflower
-  plantDescription: 'Sunflowers are essential for you to produce extra sun. Try planting
+  plantDescription: Sunflowers are essential for you to produce extra sun. Try planting
     as many as you can!
-
-
-    Sunflower can''t resist bouncing to the beat. Which
-    beat is that? Why, the life-giving jazzy rhythm of the Earth itself, thumping
-    at a frequency only Sunflower can hear.'
   plantPrefab: {fileID: 6987092860135531906, guid: 0e8ed7c047d536e46a78e257e87240bc, type: 3}
   sunCost: 50
+  plantDesignation: 0
   spawnRechargeTime: 0
+  isUpgrade: 0

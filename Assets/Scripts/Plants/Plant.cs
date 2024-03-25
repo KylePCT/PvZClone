@@ -5,6 +5,8 @@ using TMPro;
 
 internal class Plant : MonoBehaviour
 {
+    public PlantData selectedPlant;
+
     public float maxHealth;
     public float currentHealth;
     public TextMeshPro healthText;

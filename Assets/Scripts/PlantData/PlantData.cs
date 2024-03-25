@@ -14,6 +14,11 @@ internal class PlantData : ScriptableObject
     [Header("Parameters")]
     public int sunCost;
 
-    public enum SpawnRechargeTime { Fast, Medium, Slow };
+    public enum PlantDesignation { Day, Night, Water_Day, Water_Night, Roof };
+    public PlantDesignation plantDesignation;
+
+    public enum SpawnRechargeTime { Fast, Slow, Very_Slow };
     public SpawnRechargeTime spawnRechargeTime;
+
+    public bool isUpgrade;
 }

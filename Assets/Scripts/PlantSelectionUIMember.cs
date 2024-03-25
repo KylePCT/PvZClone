@@ -16,6 +16,7 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
     private float maxRechargeTime;
     private float rechargeTime;
     private bool isRecharging;
+    private bool isInitial; //If level has just begun.
 
     private void Start()
     {
@@ -23,9 +24,23 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
         uiController = UIController.instance;
         tooltipController = uiController.tooltip.GetComponent<TooltipController>();
 
+        Initialise();
+    }
+
+    private void Initialise()
+    {
         //Initialise.
         uiController.tooltip.SetActive(false);
-        isRecharging = false;
+        SetRechargeTime();
+
+        if (selectedPlant.spawnRechargeTime != PlantData.SpawnRechargeTime.Fast)
+        {
+            isInitial = true;
+            isRecharging = true;
+            GetComponent<Image>().fillAmount = 0;
+            rechargeTime = 0;
+            StartCoroutine("RechargePlantUI");
+        }
     }
 
     public void OnMouseClickOnUI()
@@ -56,24 +71,24 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
         {
             case PlantData.SpawnRechargeTime.Fast:
                 {
-                    rechargeTime = 7.5f;
-                }
-                break;
-
-            case PlantData.SpawnRechargeTime.Medium:
-                {
-                    rechargeTime = 30f;
+                    maxRechargeTime = 7.5f;
                 }
                 break;
 
             case PlantData.SpawnRechargeTime.Slow:
                 {
-                    rechargeTime = 50f;
+                    maxRechargeTime = isInitial ? 20f : 30f;
+                    isRecharging = isInitial ? true : false;
+                }
+                break;
+
+            case PlantData.SpawnRechargeTime.Very_Slow:
+                {
+                    maxRechargeTime = isInitial ? 35f : 50f;
+                    isRecharging = isInitial ? true : false;
                 }
                 break;
         }
-
-        maxRechargeTime = rechargeTime;
     }
 
     IEnumerator RechargePlantUI()
@@ -88,12 +103,22 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
                 rechargeTime++;
                 GetComponent<Image>().fillAmount = rechargeTime / maxRechargeTime;
             }
-            else isRecharging = false;
+            else
+            {
+                isRecharging = false;
+            }
         }
 
         while (!isRecharging)
         {
             GetComponent<Image>().fillAmount = 1f;
+
+            if (isInitial)
+            {
+                isInitial = false;
+                SetRechargeTime();
+            }
+
             yield return null;
         }
     }

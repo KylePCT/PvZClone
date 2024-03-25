@@ -13,13 +13,9 @@ MonoBehaviour:
   m_Name: PlantData_Repeater
   m_EditorClassIdentifier: 
   plantName: Repeater
-  plantDescription: 'Repeaters fire two peas at a time.
-
-
-    Repeater is fierce.
-    He''s from the streets. He doesn''t take attitude from anybody, plant or zombie,
-    and he shoots peas to keep people at a distance. Secretly, though, Repeater yearns
-    for love.'
+  plantDescription: Repeaters fire two peas at a time.
   plantPrefab: {fileID: 6987092860135531906, guid: bb7ac6b74a2099848b9b0d127c3cc47f, type: 3}
   sunCost: 200
+  plantDesignation: 0
   spawnRechargeTime: 0
+  isUpgrade: 0

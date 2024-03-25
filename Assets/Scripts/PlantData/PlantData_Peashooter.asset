@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: PlantData_Peashooter
   m_EditorClassIdentifier: 
   plantName: Peashooter
-  plantDescription: 'Peashooters are your first line of defence. They shoot peas
-    at attacking zombies.
-
-
-    How can a single plant grow and shoot so many peas
-    so quickly? Peashooter says: "Hardwork, commitment, and a healthy, well-balanced
-    breakfast of sunlight and high-fiber carbon dioxide make it all possible."'
+  plantDescription: Peashooters are your first line of defence. They shoot peas at
+    attacking zombies.
   plantPrefab: {fileID: 6987092860135531906, guid: 70abd49c87541184c99aadf5fb96534d, type: 3}
   sunCost: 100
+  plantDesignation: 0
   spawnRechargeTime: 0
+  isUpgrade: 0

@@ -13,13 +13,10 @@ MonoBehaviour:
   m_Name: PlantData_Wall-nut
   m_EditorClassIdentifier: 
   plantName: Wall-nut
-  plantDescription: 'Wall-nuts have hard shells which you can use to protect your
+  plantDescription: Wall-nuts have hard shells which you can use to protect your
     other plants.
-
-
-    "People wonder how I feel about getting constantly chewed
-    on by zombies." says Wall-nut. "What they don''t realise is that with my limited
-    senses all I can feel is a kind of tingling, like a relaxing back rub."'
   plantPrefab: {fileID: 6987092860135531906, guid: 822be9dd0fbe9a44f9b50039c0279b79, type: 3}
   sunCost: 50
+  plantDesignation: 0
   spawnRechargeTime: 1
+  isUpgrade: 0
