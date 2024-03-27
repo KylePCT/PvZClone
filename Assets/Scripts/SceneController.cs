@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-internal class SceneController : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
     //Init.
     private PlaceObjOnGrid gridController;

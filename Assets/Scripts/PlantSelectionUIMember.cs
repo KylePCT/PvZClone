@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private PlaceObjOnGrid gridController;
-    private UIController uiController;
+    private PlantToolbarController pickerController;
     private TooltipController tooltipController;
 
     [Tooltip("The plant represented by this UI block.")]
@@ -21,8 +21,8 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
     private void Start()
     {
         gridController = PlaceObjOnGrid.instance;
-        uiController = UIController.instance;
-        tooltipController = uiController.tooltip.GetComponent<TooltipController>();
+        pickerController = PlantToolbarController.instance;
+        tooltipController = pickerController.tooltip.GetComponent<TooltipController>();
 
         Initialise();
     }
@@ -30,7 +30,7 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
     private void Initialise()
     {
         //Initialise.
-        uiController.tooltip.SetActive(false);
+        pickerController.tooltip.SetActive(false);
         SetRechargeTime();
 
         if (selectedPlant.spawnRechargeTime != PlantData.SpawnRechargeTime.Fast)
@@ -47,7 +47,7 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
     {
         if (isRecharging) return;
 
-        if (gridController.onMousePrefab == null && uiController.currentSun >= selectedPlant.sunCost)
+        if (gridController.onMousePrefab == null && pickerController.currentSun >= selectedPlant.sunCost)
         {
             gridController.onMousePrefab = Instantiate(selectedPlant.plantPrefab.transform, gridController.mousePos, Quaternion.identity);
         }
@@ -55,8 +55,8 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
 
     public void PlaceAndBeginRecharging()
     {
-        uiController.DecreaseSunAmount(selectedPlant.sunCost);
-        uiController.currentlyHighlightedUIMember = null;
+        pickerController.DecreaseSunAmount(selectedPlant.sunCost);
+        pickerController.currentlyHighlightedUIMember = null;
 
         SetRechargeTime(); //Uses the spawnRechargeTime Enum to set the recharge time.
         isRecharging = true;
@@ -129,9 +129,9 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
         //Output to console the GameObject's name and the following message
         TraceBeans.Info("Cursor Entering: <" + name + "> UI Object.");
 
-        uiController.currentlyHighlightedUIMember = this;
+        pickerController.currentlyHighlightedUIMember = this;
 
-        uiController.tooltip.SetActive(true);
+        pickerController.tooltip.SetActive(true);
         tooltipController.plantName.text = selectedPlant.plantName;
         tooltipController.plantDescription.text = selectedPlant.plantDescription;
         tooltipController.sunCost.text = "Sun Cost: " + selectedPlant.sunCost.ToString();
@@ -143,6 +143,6 @@ internal class PlantSelectionUIMember : MonoBehaviour, IPointerEnterHandler, IPo
         //Output the following message with the GameObject's name
         TraceBeans.Info("Cursor Exiting: <" + name + "> UI Object.");
 
-        uiController.tooltip.SetActive(false);
+        pickerController.tooltip.SetActive(false);
     }
 }

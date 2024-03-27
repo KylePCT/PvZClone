@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    //States.
     public GameMainMenuState MainMenuState = new GameMainMenuState();
 
     public GamePlayIntroState PlayIntroState = new GamePlayIntroState();
@@ -15,12 +16,21 @@ public class GameStateManager : MonoBehaviour
     public GameSettingState SettingState = new GameSettingState();
     public GameAlmanacState AlmanacState = new GameAlmanacState();
 
-    public GameBaseState currentState;
+    GameBaseState currentState;
+    [SerializeField] private string activeState;
 
-    // Start is called before the first frame update
+    //References to controllers.
+    [HideInInspector] public PlaceObjOnGrid gridController;
+    [HideInInspector] public PlantToolbarController plantToolbarController;
+    [HideInInspector] public SceneController sceneController;
+    [HideInInspector] public WaveController waveController;
+
     void Start()
     {
-        if (currentState == null) currentState = PlayIntroState;
+        GetControllers();
+
+        currentState = MainMenuState;
+        activeState = currentState.ToString();
 
         //References the context - aka this manager.
         currentState.OnEnterState(this);
@@ -32,10 +42,29 @@ public class GameStateManager : MonoBehaviour
         currentState.UpdateState(this);
     }
 
+    private void GetControllers()
+    {
+        gridController = GameObject.Find("Grid Controller").GetComponent<PlaceObjOnGrid>();
+        plantToolbarController = GameObject.Find("Plant Picker Controller").GetComponent<PlantToolbarController>();
+        sceneController = GameObject.Find("Scene Controller").GetComponent<SceneController>();
+        waveController = GameObject.Find("Wave Controller").GetComponent<WaveController>();
+
+        ToggleAllGameplayControllers(false);
+    }
+
     public void ChangeState(GameBaseState state)
     {
         state.OnExitState(this);
         currentState = state;
+        activeState = currentState.ToString();
         state.OnEnterState(this);
+    }
+
+    public void ToggleAllGameplayControllers(bool state)
+    {
+        gridController.gameObject.SetActive(state);
+        plantToolbarController.gameObject.SetActive(state);
+        sceneController.gameObject.SetActive(state);
+        waveController.gameObject.SetActive(state);
     }
 }

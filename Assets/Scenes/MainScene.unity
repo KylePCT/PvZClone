@@ -892,6 +892,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1427512223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427512225}
+  - component: {fileID: 1427512224}
+  m_Layer: 0
+  m_Name: Game State Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1427512224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427512223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a27472863f3bb374ea89fdcc118d8d1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeState: 
+  gridController: {fileID: 0}
+  plantToolbarController: {fileID: 0}
+  sceneController: {fileID: 0}
+  waveController: {fileID: 0}
+--- !u!4 &1427512225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427512223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1448417835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,6 +1184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bce0fd2d46098a488b619191b91f601, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCurrentWaveComplete: 0
   currentWave: {fileID: 11400000, guid: 0d3cad4397d15054faf416eb48e09a9f, type: 2}
 --- !u!4 &1597366207
 Transform:
@@ -1509,31 +1559,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1900110998}
-  - component: {fileID: 1900110997}
+  - component: {fileID: 1900110999}
   m_Layer: 0
-  m_Name: UI Controller
+  m_Name: Plant Picker Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1900110997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1900110996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf56b42be3b1ed24d8ebc8e5c4385483, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sunCountText: {fileID: 2025633593}
-  tooltip: {fileID: 1689345736}
-  currentlyHighlightedUIMember: {fileID: 0}
-  startingSun: 150
-  currentSun: 0
 --- !u!4 &1900110998
 Transform:
   m_ObjectHideFlags: 0
@@ -1550,6 +1583,23 @@ Transform:
   - {fileID: 721885144}
   m_Father: {fileID: 1188516488}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900110999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900110996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf56b42be3b1ed24d8ebc8e5c4385483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sunCountText: {fileID: 2025633593}
+  tooltip: {fileID: 15967146}
+  currentlyHighlightedUIMember: {fileID: 0}
+  startingSun: 200
+  currentSun: 0
 --- !u!1 &1983676919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,4 +2008,5 @@ SceneRoots:
   - {fileID: 1572935794}
   - {fileID: 2052091098}
   - {fileID: 1251694295}
+  - {fileID: 1427512225}
   - {fileID: 1188516488}

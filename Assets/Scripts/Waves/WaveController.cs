@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-internal class WaveController : MonoBehaviour
+public class WaveController : MonoBehaviour
 {
     private PlaceObjOnGrid gridGenerator;
 
     private bool waveIsActive;
+    public bool isCurrentWaveComplete;
 
     public Wave currentWave;
 
@@ -29,8 +30,8 @@ internal class WaveController : MonoBehaviour
 
     public void StartWave(Wave waveToStart)
     {
+        isCurrentWaveComplete = false;
         segments = waveToStart.waveSegments;
-
         waveIsActive = true;
 
         StartCoroutine("GenerateWaves", segments);
@@ -38,7 +39,7 @@ internal class WaveController : MonoBehaviour
 
     IEnumerator GenerateWaves(WaveSegment[] segments)
     {
-        while (waveIsActive)
+        while (waveIsActive && !isCurrentWaveComplete)
         {
             for (int i = 0; i < segments.Length; ++i)
             {
@@ -53,7 +54,8 @@ internal class WaveController : MonoBehaviour
 
                 if (i >= segments.Length - 1) 
                 { 
-                    waveIsActive = false; 
+                    waveIsActive = false;
+                    isCurrentWaveComplete = true;
                     break; 
                 }
 

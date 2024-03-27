@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-internal class UIController : MonoBehaviour
+public class PlantToolbarController : MonoBehaviour
 {
-    public static UIController instance = null;
+    public static PlantToolbarController instance = null;
     public TextMeshProUGUI sunCountText;
     public GameObject tooltip;
 

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-internal class PlaceObjOnGrid : MonoBehaviour
+public class PlaceObjOnGrid : MonoBehaviour
 {
     public static PlaceObjOnGrid instance = null;
-    private UIController uiController;
+    private PlantToolbarController pickerController;
     
     [Header("Attributes")]
     public int gridHeight;
@@ -31,7 +31,7 @@ internal class PlaceObjOnGrid : MonoBehaviour
 
     void Start()
     {
-        uiController = UIController.instance;
+        pickerController = PlantToolbarController.instance;
         CreateGrid();
     }
 
@@ -82,7 +82,7 @@ internal class PlaceObjOnGrid : MonoBehaviour
                         node.isPlaceable = false;
                         onMousePrefab.GetComponent<ObjFollowsMouse>().isOnGrid = true;
                         onMousePrefab.position = node.cellPos + new Vector3(0, 0.5f, 0);
-                        uiController.currentlyHighlightedUIMember.PlaceAndBeginRecharging();
+                        pickerController.currentlyHighlightedUIMember.PlaceAndBeginRecharging();
                         TraceBeans.Info("Plant: <" + onMousePrefab.name +  "> has been placed on Tile: <" + node.cellPos + ">.");
 
                         if (onMousePrefab.GetComponent<Plant_Offensive>() != null)

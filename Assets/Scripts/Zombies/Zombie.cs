@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-internal class Zombie : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     public GameObject zombieModel;
 

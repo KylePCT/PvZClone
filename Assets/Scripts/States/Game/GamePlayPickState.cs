@@ -15,6 +15,6 @@ public class GamePlayPickState : GameBaseState
     public override void OnExitState(GameStateManager game)
     {
         //TODO: Close picking plants UI and send results to UI manager in game.
-
+        game.plantToolbarController.gameObject.SetActive(true);
     }
 }

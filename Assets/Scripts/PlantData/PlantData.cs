@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlantData", menuName = "PvZRemake/Plant/New Plant", order = 1)]
-internal class PlantData : ScriptableObject
+public class PlantData : ScriptableObject
 {
     [Header("Identity")]
     public string plantName;

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-internal class Sun : MonoBehaviour
+public class Sun : MonoBehaviour
 {
-    private UIController uiController;
+    private PlantToolbarController pickerController;
 
     public int sunLifetime;
     public int sunAmount;
@@ -13,7 +13,7 @@ internal class Sun : MonoBehaviour
 
     void Start()
     {
-        uiController = UIController.instance;
+        pickerController = PlantToolbarController.instance;
         objectRigidbody = GetComponent<Rigidbody>();
 
         Destroy(gameObject, sunLifetime);
@@ -33,8 +33,8 @@ internal class Sun : MonoBehaviour
     //When clicked, increase sun by X and destroy the object.
     private void OnMouseDown()
     {
-        uiController.IncreaseSunAmount(sunAmount);
+        pickerController.IncreaseSunAmount(sunAmount);
         Destroy(gameObject);
-        TraceBeans.Info("Sun has been collected. Total Sun Amount is now: <" + uiController.currentSun + ">.");
+        TraceBeans.Info("Sun has been collected. Total Sun Amount is now: <" + pickerController.currentSun + ">.");
     }
 }
