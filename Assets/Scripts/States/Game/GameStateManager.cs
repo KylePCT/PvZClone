@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    #region States
     //States.
     public GameMainMenuState MainMenuState = new GameMainMenuState();
 
@@ -18,25 +19,26 @@ public class GameStateManager : MonoBehaviour
 
     GameBaseState currentState;
     [SerializeField] private string activeState;
+    #endregion
 
+    #region Controllers
     //References to controllers.
+    [HideInInspector] public ScreenUIController screenUIController;
     [HideInInspector] public PlaceObjOnGrid gridController;
     [HideInInspector] public PlantToolbarController plantToolbarController;
     [HideInInspector] public SceneController sceneController;
     [HideInInspector] public WaveController waveController;
+    #endregion
 
     void Start()
     {
         GetControllers();
 
         currentState = MainMenuState;
-        activeState = currentState.ToString();
-
-        //References the context - aka this manager.
         currentState.OnEnterState(this);
+        activeState = currentState.ToString();
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentState.UpdateState(this);
@@ -44,8 +46,12 @@ public class GameStateManager : MonoBehaviour
 
     private void GetControllers()
     {
+        //Main UI controller.
+        screenUIController = GameObject.Find("UI Controllers").GetComponent<ScreenUIController>();
+
+        //Gameplay controllers.
         gridController = GameObject.Find("Grid Controller").GetComponent<PlaceObjOnGrid>();
-        plantToolbarController = GameObject.Find("Plant Picker Controller").GetComponent<PlantToolbarController>();
+        plantToolbarController = GameObject.Find("Plant Toolbar Controller").GetComponent<PlantToolbarController>();
         sceneController = GameObject.Find("Scene Controller").GetComponent<SceneController>();
         waveController = GameObject.Find("Wave Controller").GetComponent<WaveController>();
 
@@ -53,11 +59,21 @@ public class GameStateManager : MonoBehaviour
     }
 
     public void ChangeState(GameBaseState state)
+    { 
+        StartCoroutine("DelayedStateChange", state);
+    }
+
+    IEnumerator DelayedStateChange(GameBaseState state)
     {
-        state.OnExitState(this);
+        if (currentState != null) currentState.OnExitState(this);
+        TraceBeans.Info("Exiting State <" + currentState.ToString() + ">.");
+
+        yield return new WaitForSeconds(0.1f); //Otherwise ExitState() doesn't fire. Idk.
+
         currentState = state;
         activeState = currentState.ToString();
         state.OnEnterState(this);
+        TraceBeans.Info("Entering State <" + currentState.ToString() + ">.");
     }
 
     public void ToggleAllGameplayControllers(bool state)

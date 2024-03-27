@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Zombie : MonoBehaviour
 {
+    private WaveController waveController;
     public GameObject zombieModel;
 
     [Header("Movement")]
@@ -31,6 +32,8 @@ public class Zombie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        waveController = WaveController.instance; 
+
         currentHealth = maxHealth;
         currentExtraHealth = maxExtraHealth;
         healthText.text = currentHealth.ToString();
@@ -94,6 +97,7 @@ public class Zombie : MonoBehaviour
             if (currentExtraHealth <= damage)
             {
                 TraceBeans.Info("Zombie: <" + this.gameObject.name + "> is now dead!");
+                waveController.currentZombies--;
                 Destroy(gameObject);
             }
         }

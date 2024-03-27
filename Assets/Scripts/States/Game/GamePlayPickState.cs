@@ -16,5 +16,6 @@ public class GamePlayPickState : GameBaseState
     {
         //TODO: Close picking plants UI and send results to UI manager in game.
         game.plantToolbarController.gameObject.SetActive(true);
+        TraceBeans.Error("EXIT STATE BABY");
     }
 }

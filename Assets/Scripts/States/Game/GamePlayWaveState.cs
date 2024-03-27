@@ -4,6 +4,8 @@ public class GamePlayWaveState : GameBaseState
 {
     public override void OnEnterState(GameStateManager game)
     {
+        game.screenUIController.ToggleAllScreens(false);
+
         //TODO: Load and begin game wave logic.
         game.sceneController.gameObject.SetActive(true);
         game.waveController.gameObject.SetActive(true);
@@ -15,6 +17,7 @@ public class GamePlayWaveState : GameBaseState
         if (game.waveController.isCurrentWaveComplete)
         {
             game.ChangeState(game.PlayCompleteState);
+            game.waveController.isCurrentWaveComplete = false;
         }
     }
 

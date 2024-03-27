@@ -5,32 +5,42 @@ using UnityEngine;
 
 public class WaveController : MonoBehaviour
 {
+    public static WaveController instance = null;
     private PlaceObjOnGrid gridGenerator;
 
     private bool waveIsActive;
-    public bool isCurrentWaveComplete;
 
     public Wave currentWave;
+    public bool isCurrentWaveComplete;
 
     private WaveSegment[] segments;
+
+    [Space(10)]
+    public int currentZombies;
+
+    private void Awake()
+    {
+        if (instance == null) instance = this; //Assign instance.
+        else if (instance != this) Destroy(gameObject); //If we already have this existing, we don't need another.
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         gridGenerator = PlaceObjOnGrid.instance;
 
+        isCurrentWaveComplete = false;
         StartWave(currentWave);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (!waveIsActive && currentZombies <= 0 && !isCurrentWaveComplete) isCurrentWaveComplete = true;
     }
 
     public void StartWave(Wave waveToStart)
     {
-        isCurrentWaveComplete = false;
         segments = waveToStart.waveSegments;
         waveIsActive = true;
 
@@ -39,7 +49,7 @@ public class WaveController : MonoBehaviour
 
     IEnumerator GenerateWaves(WaveSegment[] segments)
     {
-        while (waveIsActive && !isCurrentWaveComplete)
+        while (waveIsActive)
         {
             for (int i = 0; i < segments.Length; ++i)
             {
@@ -50,12 +60,12 @@ public class WaveController : MonoBehaviour
                     Zombie zombieSpawned = Instantiate(zombie, transform, true);
                     zombieSpawned.transform.parent = transform;
                     zombieSpawned.transform.position = new Vector3(gridGenerator.gridWidth + 3, 0.5f, Random.Range(0, gridGenerator.gridHeight));
+                    currentZombies++;
                 }
 
                 if (i >= segments.Length - 1) 
                 { 
                     waveIsActive = false;
-                    isCurrentWaveComplete = true;
                     break; 
                 }
 
