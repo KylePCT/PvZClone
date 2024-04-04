@@ -20,10 +20,10 @@ internal class Plant_Offensive : Plant
     {
 
     }
+
     public void Initialise()
     {
-        isFiring = true;
-        StartCoroutine("FireBullet");
+        stateManager.ChangeState(stateManager.IdleState);
     }
 
     IEnumerator FireBullet()

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-[CreateAssetMenu(fileName = "Wave", menuName = "PvZRemake/Wave/New Wave", order = 1)]
+[CreateAssetMenu(fileName = "Wave", menuName = "PvZRemake/Zombies/New Zombie Wave", order = 1)]
 public class Wave : ScriptableObject
 {
     public string waveNumber;

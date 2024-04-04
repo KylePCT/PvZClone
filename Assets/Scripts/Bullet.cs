@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-internal class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     public int bulletSpeed;
     public int bulletLifetime;
@@ -30,7 +30,7 @@ internal class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Zombie")
+        if (col.CompareTag("Zombie"))
         {
             col.GetComponent<Zombie>().TakeDamage(damageOnHit);
             TraceBeans.Info("Hit Zombie: <" + col.gameObject.name + ">.");

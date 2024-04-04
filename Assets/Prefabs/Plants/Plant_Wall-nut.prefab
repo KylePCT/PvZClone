@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3815942957580163072}
   - component: {fileID: 2343260850585577873}
   - component: {fileID: 343121654606361555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 751467149025115181}
   - component: {fileID: 1473843769746690674}
   - component: {fileID: 7592420756834045537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Healthdebug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,12 +263,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7243994099130381921}
+  - component: {fileID: 5581605825682646270}
   - component: {fileID: 7113087584009429510}
   - component: {fileID: 6953719331974630532}
   - component: {fileID: 68315205167253520}
   - component: {fileID: 6103243229044018207}
   - component: {fileID: -1796166105164323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plant_Wall-nut
   m_TagString: Plant/Default
   m_Icon: {fileID: 0}
@@ -292,6 +293,20 @@ Transform:
   - {fileID: 751467149025115181}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5581605825682646270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6987092860135531906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb6bb670b12cf947a3ee96e9b0a9f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeState: 
+  thisPlant: {fileID: 0}
 --- !u!114 &7113087584009429510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc4a54cc1d94144c8b37aad6f42ec2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateManager: {fileID: 5581605825682646270}
   selectedPlant: {fileID: 0}
   maxHealth: 4000
   currentHealth: 4000

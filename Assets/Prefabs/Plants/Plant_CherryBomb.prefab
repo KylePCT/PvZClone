@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5547376433400504052, guid: 7737d05bd52f4ad4fb99252e863438d6, type: 3}
       propertyPath: m_Name
-      value: Plant_CherryBomb Variant
+      value: Plant_CherryBomb
       objectReference: {fileID: 0}
     - target: {fileID: 7609202824519475230, guid: 7737d05bd52f4ad4fb99252e863438d6, type: 3}
       propertyPath: killArea.x

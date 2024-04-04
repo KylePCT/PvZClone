@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-internal class Plant : MonoBehaviour
+[RequireComponent(typeof(PlantStateManager))]
+public class Plant : MonoBehaviour
 {
+    public PlantStateManager stateManager;
     public PlantData selectedPlant;
 
     public float maxHealth;
@@ -12,14 +14,21 @@ internal class Plant : MonoBehaviour
     public TextMeshPro healthText;
 
     // Start is called before the first frame update
-    void Start()
+    void Start()    
     {
+        stateManager = GetComponent<PlantStateManager>();
+
         currentHealth = maxHealth;
         healthText.text = currentHealth.ToString();
     }
 
     private void Update()
     {
-        if (currentHealth <= 0) { Destroy(gameObject); }
+        if (currentHealth <= 0) { stateManager.ChangeState(stateManager.DeathState); }
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 }

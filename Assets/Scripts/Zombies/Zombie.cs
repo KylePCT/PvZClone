@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(ZombieStateManager))]
 public class Zombie : MonoBehaviour
 {
+    private ZombieStateManager stateManager;
     private WaveController waveController;
+
     public GameObject zombieModel;
 
     [Header("Movement")]
@@ -21,31 +24,34 @@ public class Zombie : MonoBehaviour
     public float currentHealth;
     public float maxExtraHealth;
     public float currentExtraHealth;
+    public ArmourData armourData;
 
     public TextMeshPro healthText;
 
     [Header("Eating")]
     public bool isEating;
 
-    private Plant plantInCollision;
+    [HideInInspector] public Collider colTouching;
+    [HideInInspector] public Plant plantInCollision;
 
     // Start is called before the first frame update
     void Start()
     {
+        stateManager = GetComponent<ZombieStateManager>();
+
         waveController = WaveController.instance; 
 
-        currentHealth = maxHealth;
+        currentHealth = maxHealth + armourData.armourHealth;
         currentExtraHealth = maxExtraHealth;
-        healthText.text = currentHealth.ToString();
 
-        //Walking speed refers to speed/tile, so we divide to get that value accurately. Divide again by 2 for more accuracy.
-        walkingSpeed = ((walkingSpeed / PlaceObjOnGrid.instance.gridWidth) / 2);
+        healthText.text = currentHealth.ToString();
+        if (armourData != null) healthText.color = Color.yellow;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!isEating) transform.position -= new Vector3(walkingSpeed * Time.deltaTime, 0, 0);
+        
     }
 
     private void OnTriggerEnter(Collider col)
@@ -53,9 +59,8 @@ public class Zombie : MonoBehaviour
         //If it collides with a plant.
         if (col.CompareTag("Plant/Default"))
         {
-            isEating = true;
-            plantInCollision = col.gameObject.GetComponent<Plant>();
-            StartCoroutine("eatPlant");
+            stateManager.ChangeState(stateManager.EatingState);
+            colTouching = col;
         }
     }
 
@@ -64,15 +69,13 @@ public class Zombie : MonoBehaviour
         //If it collides with a plant.
         if (col.CompareTag("Plant/Default"))
         {
-            isEating = false;
-            plantInCollision = null;
-            StopCoroutine("eatPlant");
+            stateManager.ChangeState(stateManager.WalkingState);
+            colTouching = null;
         }
     }
 
     public void TakeDamage(float damage)
     {
-
         //Take standard health damage.
         if (currentHealth > damage)
         {
@@ -85,20 +88,17 @@ public class Zombie : MonoBehaviour
         //When health is depleted...
         else if (currentHealth <= damage) 
         {
+            if (stateManager.currentState != stateManager.DyingState) stateManager.ChangeState(stateManager.DyingState);
+
             //Take damage to extra health.
             currentExtraHealth = currentExtraHealth - damage;
             healthText.text = currentExtraHealth.ToString();
             TraceBeans.Info("Zombie: <" + this.gameObject.name + "> was hit for <" + damage + ">! Remaining Extra Health: <" + currentExtraHealth + ">.");
 
-            //Stop movement ("die").
-            walkingSpeed = 0;
-
             //Rip.
             if (currentExtraHealth <= damage)
             {
-                TraceBeans.Info("Zombie: <" + this.gameObject.name + "> is now dead!");
-                waveController.currentZombies--;
-                Destroy(gameObject);
+                stateManager.ChangeState(stateManager.DeathState);
             }
         }
     }
@@ -122,5 +122,10 @@ public class Zombie : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 }

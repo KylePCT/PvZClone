@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 649548033761144349}
+  - component: {fileID: 5687318619914851688}
   - component: {fileID: 8357248548369508589}
   - component: {fileID: 938135059205887224}
   - component: {fileID: 7887714376576356460}
   - component: {fileID: 4122884239033750627}
   - component: {fileID: 74023710632801665}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Zombie_Flag
   m_TagString: Zombie
   m_Icon: {fileID: 0}
@@ -39,6 +40,21 @@ Transform:
   - {fileID: 6996841950566655621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5687318619914851688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969221499533147646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ebdce6ae6e020b41933a3b081c173cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeState: 
+  waveController: {fileID: 0}
+  thisZombie: {fileID: 0}
 --- !u!114 &8357248548369508589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,15 +68,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombieModel: {fileID: 0}
-  walkingSpeed: 4.7
+  walkingSpeed: 0.3
   attackRate: 1
   damagePerAttack: 100
   maxHealth: 181
   currentHealth: 181
   maxExtraHealth: 89
   currentExtraHealth: 89
+  armourData: {fileID: 0}
   healthText: {fileID: 6782493321194438646}
   isEating: 0
+  colTouching: {fileID: 0}
+  plantInCollision: {fileID: 0}
 --- !u!33 &938135059205887224
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -170,7 +189,7 @@ GameObject:
   - component: {fileID: 7421346040072330777}
   - component: {fileID: 8747412316007637880}
   - component: {fileID: 6782493321194438646}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Healthdebug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +362,7 @@ GameObject:
   - component: {fileID: 6996841950566655621}
   - component: {fileID: 8588214078817106918}
   - component: {fileID: 7018147682174295301}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +445,7 @@ GameObject:
   - component: {fileID: 6444807027849674876}
   - component: {fileID: 5548594627091132909}
   - component: {fileID: 7586170007669549999}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}

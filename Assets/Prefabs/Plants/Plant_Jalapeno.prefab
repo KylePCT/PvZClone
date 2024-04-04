@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 527645667839778072}
   - component: {fileID: 501098747248551594}
   - component: {fileID: 5220351658891512807}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,12 +92,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 810205906773191599}
+  - component: {fileID: 3152580640031352721}
   - component: {fileID: 7609202824519475230}
   - component: {fileID: 3154778365595991600}
   - component: {fileID: 5897689883105142406}
   - component: {fileID: 7419645894978849905}
   - component: {fileID: 9134603772481628531}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plant_Jalapeno
   m_TagString: Plant/InstantKill
   m_Icon: {fileID: 0}
@@ -121,6 +122,20 @@ Transform:
   - {fileID: 6272348003187029235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3152580640031352721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5547376433400504052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb6bb670b12cf947a3ee96e9b0a9f00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeState: 
+  thisPlant: {fileID: 0}
 --- !u!114 &7609202824519475230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7481acae8e175ce4190d7f5f96c2ed52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stateManager: {fileID: 3152580640031352721}
   selectedPlant: {fileID: 0}
   maxHealth: 9999
   currentHealth: 9999
@@ -236,7 +252,7 @@ GameObject:
   - component: {fileID: 6272348003187029235}
   - component: {fileID: 6903636295775539366}
   - component: {fileID: 5001779058974631871}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Healthdebug
   m_TagString: Untagged
   m_Icon: {fileID: 0}
